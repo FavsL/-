@@ -1,0 +1,29 @@
+1.<br/>标签仅能用于段落中的换行，不能用于其他情况。
+
+
+2.在css的样式内某属性后加 ！important  此属性权重变成所有最高，忽视各种内外样式。
+
+3. css选择器       1.M  N 后代选择器选择M内的N元素（所有N）
+2.M>N 子代选择 M内的第一级的N元素
+3.M~N 兄弟选择。M后所有同级的N
+4. M+N M相邻的下一个元素（同级元素）
+5.CSS注释不被压缩工具忽略：/*！注释内容*/
+6.css元素垂直居中的技巧
+
+父元素
+{
+position:relative;
+}
+子元素
+{
+position:absolute;
+top:50%;left:50%;
+margin-top:”height值得一半的负”;margin-left:”width值得一半的负”；
+}
+
+7.对于inline-block的元素，在父元素加上font-size: 0 可以消去子元素之间的间距
+8.vertical-align   对于inline和inline-block来说是周围元素相对于当前元素   相对于table-cell是子元素对于父元素
+9. 块元素可以定义width和height  padding margin
+10.自动平均划分元素
+父元素 {display:table};子元素{ display:table-cell}
+11.   子元素相对于父（祖先元素定位）  父元素 display:relative          子： display:absolute  (子元素将变成block)
