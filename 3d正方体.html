@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>3d正方体</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <style>
+                #container
+                {
+                    perspective: 1000px;
+                    margin-left:500px;
+                    margin-top:200px; 
+                } 
+                .box{
+                    transform-style: preserve-3d;
+                     perspective-origin: 50% 50%;
+                     position: relative;
+                }           
+                .box > div
+                {
+                    width: 200px;
+                    height: 200px;
+                    position: absolute;
+                    opacity: 0.5;
+                }
+                .item1
+                {
+                    background-color:  #FF6666;
+                    transform: rotateY(0deg) translateZ(100px);
+                    
+                }
+                .item2
+                {
+                    background-color:  yellow;
+                     transform: rotateY(90deg) translateZ(100px);
+                }
+                .item3
+                {
+                    background-color:  blue;
+                     transform: rotateY(180deg) translateZ(100px);
+                }
+                .item4
+                {
+                    background-color:  green;
+                     transform: rotateY(270deg) translateZ(100px);
+                }
+                .item5
+                {
+                    background-color:  gray;
+                      transform: rotateX(90deg) translateZ(100px);
+                }
+                .item6
+                {
+                    background-color:  paleturquoise;
+                      transform: rotateX(270deg) translateZ(100px);
+                }
+
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <div class="box">
+                <!--六个面-->
+                <div class="item1">你好</div>
+                <div class="item2"></div>
+                <div class="item3"></div>
+                <div class="item4">你好</div>
+                <div class="item5"></div>
+                <div class="item6">你好</div>
+                     <!--六个面-->
+            </div>
+        </div>
+    </body>
+</html>

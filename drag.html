@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>drag</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<style>
+    .dragTanjiahui {
+        width: 300px;
+        height: 300px;
+        background-color: yellow;
+        position: relative;
+    }
+</style>
+
+<body>
+    <!--html5drag-->
+    <div class="dragTanjiahui">可drag</div>
+    <script type="text/javascript">
+        let dragEles = document.querySelector('.dragTanjiahui');
+        dragEle(dragEles)
+        /*
+            @params target 拖拽的元素
+        */
+        function dragEle(target) {
+            let params = {
+                dragging: false,
+                left: 0,//初始位置
+                top: 0,//初始位置
+                mouseX: 0,
+                mouseY: 0
+            }
+            target.onmousedown = (e) => {
+                params.dragging = true;
+                params.left = parseInt(e.target.style.left, 10)||0; //元素初始x坐标
+                params.top = parseInt(e.target.style.top, 10)||0; //元素初始Y坐标
+                params.mouseX = e.clientX; //鼠标按下时的x坐标
+                params.mouseY = e.clientY; //鼠标按下时的y坐标        
+                console.log('down',e);    
+            }
+            //mouseup和mousemove事件必须在document上监听
+            document.onmouseup = (e) => {
+                params.dragging = false;
+                console.log('up',e.target.style.left,e);
+            }
+            document.onmousemove = (e) => {
+                if (params.dragging) {
+                    e.target.style.left = e.clientX - params.mouseX + params.left + 'px';
+                    e.target.style.top = e.clientY - params.mouseY + params.top + 'px';
+                    console.log('move',e)
+                }
+
+            }
+        }
+    </script>
+</body>
+
+</html>
