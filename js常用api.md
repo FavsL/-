@@ -1,8 +1,6 @@
 JavaScript常用的API
-jq引入 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js">
 
-
-
+```javascript
 // Node
 document.getElementById(id) // document.getElementById('test')
 document.querySelector(selectors) // document.querySelector('#test div')
@@ -11,7 +9,9 @@ document.documentElement
 document.head
 document.title
 document.body
+```
  
+ ```javascript
 // NodeList
 document.getElementsByClassName(names) // document.getElementsByClassName('test')
 document.getElementsByName(name) // document.getElementsByName('demo')
@@ -23,8 +23,10 @@ document.scripts
 document.images
 document.embeds
 document.forms
-class操作
+```
 
+### class操作
+```javascript
 // ie8
 // add class
 el.className += ' ' + className;
@@ -62,8 +64,9 @@ el.classList.add(className); // add class
 el.classList.remove(className); // remove class
 el.classList.contains(className); // has class
 el.classList.toggle(className); // toggle class
-节点操作
-
+```
+#### 节点操作
+```javascript
 // 创建
 var el = document.createElement(name);
  
@@ -125,10 +128,12 @@ for (var i = el.children.length; i--;) {
   if (el.children[i].nodeType != 8)
     children.unshift(el.children[i]);
 }
+
 // ie9+
 el.children
-属性操作
 
+#### 属性操作
+```javascript
 // 获取属性值
 el.getAttribute('alt');
  
@@ -155,8 +160,9 @@ el.textContent
 el.innerText = string
 // ie9+
 el.textContent = string
-CSS操作
-
+```
+#### CSS操作
+```javascript
 // 获取css样式
 // ie8
 el.currentStyle[attrName]
@@ -167,8 +173,9 @@ window.getComputedStyle(el , ":after")[attrName];
  
 // 设置CSS样式
 el.style.display = 'none';
-位置大小
-
+```
+#### 位置大小
+```javascript
 // getBoundingClientRect返回一个对象，包含top,left,right,bottom,width,height
 // width、height 元素自身宽高
 // top 元素上外边界距窗口最上面的距离
@@ -220,8 +227,10 @@ if (typeof pageWidth != "number"){
     pageHeight = document.body.clientHeight;
   }
 }
-事件
+```
 
+#### 事件
+```javascript
 // 绑定事件
 // ie9+
 el.addEventListener(eventName, handler , Booleans); // Booleans默认false(事件在冒泡阶段执行),true(事件在捕获阶段执行)
@@ -259,8 +268,9 @@ ul.addEventListener('click', function(event) {
     console.log(event.target.innerHTML)
   }
 });
-DOM加载完毕
-
+```
+#### DOM加载完毕
+```javascript
 function ready(fn) {
   if (document.readyState != 'loading'){
     // ie9+
@@ -274,8 +284,10 @@ function ready(fn) {
     });
   }
 }
-绑定上下文
+```
 
+#### 绑定上下文
+```javascript
 // ie8
 fn.apply(context, arguments);
 // ie9+
@@ -286,8 +298,9 @@ fn.bind(context);
 string.replace(/^\s+|\s+$/g, '');
 // ie9+
 string.trim();
-ajax
-
+```
+#### ajax
+```javascript
 // GET
 var request = new XMLHttpRequest();
 request.open('GET', 'user.php?fname=Bill&lname=Gates', true); // false（同步）
@@ -323,12 +336,15 @@ var request = new XMLHttpRequest();
 request.open('POST', 'user.php', true); // false（同步）
 request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 request.send(dataString);
-JSON处理
-
+```
+#### JSON处理
+```javascript
 JSON.parse(string);
 JSON.String(Object)
-节点遍历
+```
 
+#### 节点遍历
+```javascript
 function forEach( nodeList, callback ) {
   if(Array.prototype.forEach){
     // ie9+
@@ -344,3 +360,4 @@ function forEach( nodeList, callback ) {
 forEach(document.querySelectorAll(selector),function(el, i){
  
 })
+```

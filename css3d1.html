@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>css 3d demo</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .container {
+    -webkit-perspective: 1000px;
+    -moz-perspective: 1000px;
+    -ms-perspective: 1000px;
+    perspective: 1000px;
+    margin-left: 300px;
+}
+.piece-box {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 300px auto;
+    perspective-origin: 50% 50%;
+    transform-style: preserve-3d;
+    animation: pieceRotate 5s infinite;
+
+}
+/*走马灯动画*/
+@keyframes pieceRotate
+{
+0%   {
+        transform: rotateY(0deg) rotateX(0deg);}
+100% {
+        transform: rotateY(360deg) rotateX(360deg);}
+}
+
+.piece {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: red;
+    opacity: 0.5;
+ 
+}
+.piece-1 {
+    background: #FF6666;
+    transform: rotateY(0deg) translateZ(173.2px);
+ 
+}
+.piece-2 {
+    background: #FFFF00;
+    transform: rotateY(60deg) translateZ(173.2px);
+}
+.piece-3 {
+    background: #006699;
+    transform: rotateY(120deg) translateZ(173.2px);
+}
+.piece-4 {
+    background: #009999;
+    transform: rotateY(180deg) translateZ(173.2px);
+}
+.piece-5 {
+    background: #FF0033;
+    transform: rotateY(240deg) translateZ(173.2px);
+}
+.piece-6 {
+    background: #FF6600;
+    transform: rotateY(300deg) translateZ(173.2px);
+}
+    </style>
+    </head>
+    <body>
+    <div class="container">
+    <div class="piece-box">
+        <div class="piece piece-1"></div>
+        <div class="piece piece-2"></div>
+        <div class="piece piece-3"></div>
+        <div class="piece piece-4"></div>
+        <div class="piece piece-5"></div>
+        <div class="piece piece-6"></div>
+    </div>
+</div>
+    </body>
+</html>

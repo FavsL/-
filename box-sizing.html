@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>box-sizing</title>
+    <style>
+        #content_box{
+            width: 500px;
+            height: 500px;
+            background-color: yellow;
+            margin: 10px;
+            border: 1px solid red;
+            padding: 10px;
+            box-sizing: content-box;
+        }
+        #border_box{
+            width: 500px;
+            height: 500px;
+            background-color: yellow;
+            margin: 10px;
+            border: 1px solid red;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div id='content_box'>content-box，标准盒子模型，盒子内容content就是width height</div>
+    <img src='./content_box.png' title="content_box"/>
+    <img src='./border_box.png' title="border_box"/>
+    <div id='border_box'>border-box，怪异盒子模型，width和height为整个盒子的padding+content</div>
+</body>
+</html>

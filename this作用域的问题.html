@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <!--[if IE]>
+        <link rel="stylesheet" type="text/css" href="/css/ss.css"/>
+        <![endif]-->
+    <script>
+        /*
+        !!!!!!! this 既不指向函数自身也不指向函数的词法作用域
+            词法作用域：按照何处声明（定义）时进行查找。js的执行机制
+            动态作用域：按照何处调用时进行查找。传统function的this也是这样的。
+        */
+        var obj={
+            a:1,
+            
+            test:function test(){//词法作用域的话从这里开始查找a的值
+                console.log(this.a);
+            }
+        }
+        obj.test();//log  1
+        setTimeout(obj.test,200);//log undefined  动态作用域,由运行时的环境决定的，相当于 setTimeout(function(){ console.log(this.a);},200);
+        setTimeout(()=>obj.test(),1000);//log 1 箭头函数用当前的词法作用域覆盖了 this 本来的值
+    </script>
+    </body>
+</html>
